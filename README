@@ -1,0 +1,89 @@
+Findings
+1. Business Understanding
+
+The goal is to identify which factors most strongly influence used-car prices and to build interpretable regression models that quantify each factor’s impact. This supports better pricing decisions for a marketplace, dealership, or pricing tool.
+
+2. Data Cleaning Summary
+
+Key cleaning steps included:
+
+Removing missing/invalid prices
+
+Limiting prices to a realistic range
+
+Restricting vehicle years to 1990–2022
+
+Capping extreme mileage values
+
+Dropping high-missingness or high-cardinality fields
+
+Ensuring critical fields (manufacturer, condition, transmission, etc.) were present
+
+This produced a clean dataset suitable for modeling.
+
+3. Descriptive Insights
+
+Newer vehicles are more expensive.
+
+Higher mileage reduces price.
+
+Premium manufacturers show higher median prices; economy brands show lower.
+
+Better condition corresponds to higher prices.
+
+Vehicle type and drivetrain affect pricing (SUVs, trucks, AWD tend to be higher).
+
+These trends align with expectations from the used-car market.
+
+4. Modeling Results
+Linear Regression (baseline)
+
+CV RMSE ≈ $8K
+
+Newer year increases price; mileage decreases it.
+
+Manufacturer, condition, and vehicle type show clear price differences.
+
+Ridge Regression
+
+Slightly lower RMSE than Linear Regression
+
+More stable coefficients
+
+Interpretation remains straightforward
+
+Overall: Year, mileage, manufacturer, and condition are the strongest drivers of price.
+
+5. Actionable Insights
+
+Use the Ridge model to generate a recommended price range for listings.
+
+Flag listings priced far above/below model expectations.
+
+Highlight key value drivers (low mileage, newer year, condition) to users.
+
+Encourage sellers to provide full vehicle details for more accurate pricing.
+
+6. Recommendation to the Used Car Dealership
+
+Based on the analysis and the regression models, consumers most strongly value the following attributes in a used car:
+
+Newer Model Years
+Newer cars consistently command higher prices, even when controlling for mileage and other features.
+Recommendation: Prioritize acquiring late-model inventory and highlight model year prominently in listings.
+
+Lower Mileage
+Mileage is one of the largest negative predictors of price; each additional 10,000 miles reduces value noticeably.
+Recommendation: Stock lower-mileage vehicles when possible and price high-mileage inventory more aggressively to stay competitive.
+
+Good or Excellent Condition
+Condition variables (“excellent,” “like new,” etc.) show strong positive effects in the model.
+Recommendation: Invest in reconditioning vehicles and accurately documenting condition. Buyers pay more for vehicles presented as well-maintained.
+
+Reputable Manufacturers
+Brands such as Toyota, Honda, BMW, and other premium or reliable manufacturers have positive coefficients relative to baseline brands.
+Recommendation: Prioritize brands with strong consumer trust and historically high resale value.
+
+Desirable Vehicle Types and Drivetrains
+SUVs, trucks, and AWD vehicles tended to be priced higher than sedans and FWD vehicles.
+Recommendation: Increase inventory in higher-demand segments like SUVs and trucks to maximize margins.
